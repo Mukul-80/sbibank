@@ -1,0 +1,39 @@
+server:
+  port: 9095
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+       - id: AUTH-SERVICE
+         uri: http://localhost:9091
+         predicates:
+           - Path=/auth/** 
+
+       - id: ACCOUNT-SERVICE
+         uri: http://localhost:9092
+         predicates: 
+           - Path=/accounts/**
+
+       - id: LOAN-SERVICE
+         uri: http://localhost:9093
+         predicates: 
+           - Path=/loans/**
+
+       - id: TRANSACTION-SERVICE
+         uri: http://localhost:9094
+         predicates: 
+           - Path=/transactions/**					 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
