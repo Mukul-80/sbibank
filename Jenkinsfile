@@ -6,10 +6,10 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout') {
+		
+		stage('Test Stage') {
             steps {
-                git 'https://github.com/Mukul-80/Microservices.git'
+                echo 'Pipeline is running correctly'
             }
         }
 
