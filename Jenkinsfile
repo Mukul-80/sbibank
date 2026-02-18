@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    tools{
+		maven 'Maven-3'
+	}
 
     environment {
         DOCKERHUB_USER = "mukul-80"
