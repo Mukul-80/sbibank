@@ -30,7 +30,7 @@ pipeline {
                 sh 'docker build -t $DOCKERHUB_USER/auth-service ./MicroserviceAuthservice'
                 sh 'docker build -t $DOCKERHUB_USER/account-service ./MicroserviceAccount'
                 sh 'docker build -t $DOCKERHUB_USER/loan-service ./MicroserviceLoan'
-                sh 'docker build -t $DOCKERHUB_USER/transaction-service ./Microservicetranaction'
+                sh 'docker build -t $DOCKERHUB_USER/transaction-service ./Microservicetransaction'
             }
         }
 
