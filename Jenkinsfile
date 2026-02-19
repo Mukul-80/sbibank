@@ -25,12 +25,12 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker build -t $DOCKERHUB_USER/service-registry ./service-registry'
-                sh 'docker build -t $DOCKERHUB_USER/api-gateway ./api-gateway'
-                sh 'docker build -t $DOCKERHUB_USER/auth-service ./auth-service'
-                sh 'docker build -t $DOCKERHUB_USER/account-service ./account-service'
-                sh 'docker build -t $DOCKERHUB_USER/loan-service ./loan-service'
-                sh 'docker build -t $DOCKERHUB_USER/transaction-service ./transaction-service'
+                sh 'docker build -t $DOCKERHUB_USER/service-registry ./MicroserviceServiceRegistry'
+                sh 'docker build -t $DOCKERHUB_USER/api-gateway ./MicroserviceAPIGateway'
+                sh 'docker build -t $DOCKERHUB_USER/auth-service ./MicroserviceAuthservice'
+                sh 'docker build -t $DOCKERHUB_USER/account-service ./MicroserviceAccount'
+                sh 'docker build -t $DOCKERHUB_USER/loan-service ./MicroserviceLoan'
+                sh 'docker build -t $DOCKERHUB_USER/transaction-service ./Microservicetranaction'
             }
         }
 
