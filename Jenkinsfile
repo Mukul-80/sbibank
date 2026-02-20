@@ -37,15 +37,15 @@ pipeline {
         stage('Push Images') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                    sh 'echo $PASS | docker login -u $USER --password-stdin'
+                sh ''' echo $PASS | docker login -u $USER --password-stdin
+                    docker push $DOCKERHUB_USER/service-registry
+                    docker push $DOCKERHUB_USER/api-gateway
+                    docker push $DOCKERHUB_USER/auth-service
+                    docker push $DOCKERHUB_USER/account-service
+                    docker push $DOCKERHUB_USER/loan-service
+                    docker push $DOCKERHUB_USER/transaction-service
+                    '''
                 }
-
-                sh 'docker push $DOCKERHUB_USER/service-registry'
-                sh 'docker push $DOCKERHUB_USER/api-gateway'
-                sh 'docker push $DOCKERHUB_USER/auth-service'
-                sh 'docker push $DOCKERHUB_USER/account-service'
-                sh 'docker push $DOCKERHUB_USER/loan-service'
-                sh 'docker push $DOCKERHUB_USER/transaction-service'
             }
         }
 
